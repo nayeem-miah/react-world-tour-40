@@ -12,12 +12,12 @@ const Countries = () => {
       .then((res) => res.json())
       .then((data) => setCountries(data));
 
-    const handlerVisitedCountry = country =>{
-      console.log('add this to your visited country ');
-      console.log(country);
-    }
-
+    
   }, []);
+  const handlerVisitedCountry = country => {
+    console.log("add this to your visited country ");
+    // console.log(country);
+  };
   return (
     <div>
       <h3>Countries : {countries.length}</h3>
@@ -27,12 +27,12 @@ const Countries = () => {
       </div>
 
       <div className="countries-container">
-        {countries.map((country) => (
-          <Country key={country.cca3}
-          // handlerVisitedCountry={handlerVisitedCountry}
-          
-           country={country}></Country>
-        ))}
+        {
+        countries.map(country => 
+          <Country key={country.cca3} 
+          handlerVisitedCountry={handlerVisitedCountry} country={country}></Country>)
+        
+        }
       </div>
     </div>
   );
